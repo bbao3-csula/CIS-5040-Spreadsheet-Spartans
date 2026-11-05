@@ -990,6 +990,43 @@
       .charter-item { break-inside: avoid; }
     }
 
+
+    /* Weekly status reports */
+    .weekly-report { border: 1px solid var(--line); border-radius: var(--radius-large); background: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
+    .weekly-report > summary { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.2rem; list-style: none; cursor: pointer; padding: clamp(1rem, 3vw, 1.8rem); color: var(--burgundy-dark); }
+    .weekly-report > summary::-webkit-details-marker { display: none; }
+    .weekly-report > summary:focus-visible { outline: 3px solid var(--burgundy); outline-offset: -5px; }
+    .weekly-report[open] > summary { border-bottom: 1px solid var(--line); background: var(--blush-light); }
+    .weekly-heading { flex: 1; min-width: 10rem; }
+    .weekly-week { display: block; font: 600 clamp(1.35rem, 3vw, 1.9rem)/1.25 "Playfair Display", Georgia, serif; }
+    .weekly-heading time { color: var(--muted); font-size: 0.8rem; }
+    .weekly-health { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.75rem; border-radius: 999px; color: #28553b; background: #e6f2e9; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; }
+    .weekly-health::before { content: ''; width: 0.55rem; height: 0.55rem; background: #317d52; border-radius: 50%; }
+    .weekly-report[open] > summary .charter-toggle::before { content: '−'; }
+    .weekly-body { padding: clamp(1rem, 3vw, 1.8rem); }
+    .weekly-body h4 { margin: 0 0 0.65rem; color: var(--burgundy-dark); font-family: "Playfair Display", Georgia, serif; font-size: 1.12rem; }
+    .weekly-body p { margin: 0; }
+    .weekly-meta { display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; margin: 0 0 1.2rem; }
+    .weekly-meta dt, .weekly-owner { color: var(--muted); font-size: 0.75rem; }
+    .weekly-meta dd { margin: 0; font-size: 0.91rem; font-weight: 600; }
+    .weekly-goal { background: var(--ivory); border-left: 3px solid var(--burgundy); border-radius: 0 12px 12px 0; padding: 1rem 1.15rem; }
+    .weekly-summary, .weekly-design { margin-top: 1.35rem; }
+    .weekly-work { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin-top: 1.35rem; }
+    .weekly-work > div { border: 1px solid var(--line); border-radius: var(--radius-small); padding: 1rem 1.15rem; }
+    .weekly-work ul { padding: 0; margin: 0; list-style: none; }
+    .weekly-work li + li { border-top: 1px solid var(--line); margin-top: 0.6rem; padding-top: 0.6rem; }
+    .weekly-owner { display: block; }
+    .weekly-facts { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 0.8rem; margin: 1.2rem 0 0; padding: 1rem 0; border-block: 1px solid var(--line); }
+    .weekly-facts dt { color: var(--burgundy-dark); font-size: 0.78rem; font-weight: 600; }
+    .weekly-facts dd { margin: 0.2rem 0 0; }
+    .weekly-design ol { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+    .weekly-design li { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; padding: 0.7rem 0.8rem; border: 1px solid var(--line); border-radius: 10px; font-size: 0.82rem; }
+    .weekly-check { flex: none; color: #28553b; font-weight: 700; font-size: 0.72rem; }
+    .weekly-check.no { color: var(--burgundy-dark); }
+    @media (max-width: 760px) { .weekly-design ol { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 540px) { .weekly-work, .weekly-design ol { grid-template-columns: 1fr; } .weekly-facts { grid-template-columns: 1fr 1fr; } .weekly-facts > div:first-child { grid-column: 1 / -1; } }
+    @media print { .weekly-report { box-shadow: none; } .weekly-report .charter-toggle { display: none; } }
+
     /* ---------- Tablet and mobile layout ---------- */
     @media (max-width: 850px) {
       .nav {
@@ -1138,6 +1175,7 @@
         <li><a href="#prototype">Prototype</a></li>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#change-log">Change Log</a></li>
+        <li><a href="#weekly-status-reports">Status Reports</a></li>
         <li><a href="#team-charter">Team Charter</a></li>
       </ul>
     </nav>
@@ -1546,13 +1584,84 @@
       <script type="application/json" id="change-log-data">[{"id": "change-1", "date": "2026-10-26", "request": "Combine Balloons \u0026 Backdrop into one service.", "who": "Vibiana (client)", "decision": "Approved", "why": "These products go hand in hand, so combining them allows customers to get the best of both in one service.", "landed": "Planned prototype update: one combined Balloons \u0026 Backdrop booking option."}, {"id": "change-2", "date": "2026-10-26", "request": "Add an image upload feature.", "who": "Vibiana (client)", "decision": "Approved", "why": "Clients can directly show what they have in mind when selecting a service.", "landed": "Planned prototype update: reference image upload within the booking form."}, {"id": "change-3", "date": "2026-10-26", "request": "Simplify the site and reduce some of the options.", "who": "Vibiana (client)", "decision": "Approved", "why": "A simpler site with fewer options should help customers place their orders quickly and precisely.", "landed": "Planned prototype update: shorter service forms with fewer choices."}, {"id": "change-4", "date": "2026-10-26", "request": "Add the owner’s email address and phone number.", "who": "Vibiana (client)", "decision": "Declined", "why": "Separate contact channels could lead customers to bypass the booking site and explain their orders directly, rather than use the streamlined booking process.", "landed": "Not added to the booking page. Requests will continue through the site’s booking flow."}, {"id": "change-5", "date": "2026-10-26", "request": "Display starting prices for services.", "who": "Vibiana (client)", "decision": "Approved", "why": "Starting prices give customers an idea of the cost of each service and its base package before add-ons.", "landed": "Planned prototype update: starting-price previews for services and base packages."}]</script>
     </section>
 
+
+    <section class="section" id="weekly-status-reports" aria-labelledby="weekly-status-title">
+      <div class="section-heading">
+        <p class="eyebrow section-number">07 · Weekly Status Reports</p>
+        <h2 id="weekly-status-title">Weekly Status Reports</h2>
+      </div>
+
+      <details class="weekly-report" id="week-10-status-report" open>
+        <summary>
+          <span class="weekly-heading"><span class="weekly-week">Week 10</span><time datetime="2026-11-03">November 3, 2026</time></span>
+          <span class="weekly-health">ON TRACK</span>
+          <span class="charter-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="weekly-body">
+          <dl class="weekly-meta">
+            <div><dt>Team</dt><dd>The Spreadsheet Spartans</dd></div>
+            <div><dt>Report author</dt><dd>Reymond</dd></div>
+          </dl>
+          <div class="weekly-goal">
+            <h4>Project Goal</h4>
+            <p>Our project goal is to help Balloons &amp; Buttery streamline their scheduling and booking system while giving them a central place to record and review financial transactions.</p>
+          </div>
+          <div class="weekly-summary">
+            <h4>Executive Summary</h4>
+            <p>We believe we’re on track because the prototype demonstration went well. We know what adjustments we need to make to the site, and our system has been working efficiently and effectively. Everyone on the team communicates well, and we all want the same outcome.</p>
+          </div>
+
+          <div class="weekly-work">
+            <div>
+              <h4>Accomplishments This Week</h4>
+              <ul>
+                <li>The whole team met with the client.<span class="weekly-owner">Team</span></li>
+                <li>Site updates and new additions are underway.<span class="weekly-owner">Brian</span></li>
+                <li>Created the financial tracker for the current fiscal year.<span class="weekly-owner">Kevin</span></li>
+                <li>Financial analysis is underway, including a look at a potential pricing strategy.<span class="weekly-owner">Annette</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Plan for Next Week</h4>
+              <ul>
+                <li>Organize another prototype demonstration.<span class="weekly-owner">Reymond</span></li>
+                <li>Make additional updates to the site and prototype as needed.<span class="weekly-owner">Brian</span></li>
+                <li>Integrate the financial tracker and its data with the site.<span class="weekly-owner">Kevin and Annette</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <dl class="weekly-facts">
+            <div><dt>Client contact this period</dt><dd>Once this week.</dd></div>
+            <div><dt>Risks</dt><dd>None.</dd></div>
+            <div><dt>Blockers</dt><dd>None.</dd></div>
+          </dl>
+
+          <div class="weekly-design">
+            <h4>Design Principles Check</h4>
+            <ol>
+              <li><span>1. Design meaningful systems</span><span class="weekly-check">Check</span></li>
+              <li><span>2. User-first design</span><span class="weekly-check">Check</span></li>
+              <li><span>3. Remember the why</span><span class="weekly-check">Check</span></li>
+              <li><span>4. Everything on the screen is intentional</span><span class="weekly-check no">No</span></li>
+              <li><span>5. Accessibility as a foundation</span><span class="weekly-check">Check</span></li>
+              <li><span>6. Look, presentation and content</span><span class="weekly-check">Check</span></li>
+              <li><span>7. Consistency</span><span class="weekly-check">Check</span></li>
+              <li><span>8. Error prevention and recovery</span><span class="weekly-check no">No</span></li>
+              <li><span>9. Creative exploration</span><span class="weekly-check">Check</span></li>
+            </ol>
+          </div>
+        </div>
+      </details>
+    </section>
+
     <section class="section charter-group" id="team-charter" aria-labelledby="team-charter-title">
       <div class="section-heading"><p class="eyebrow section-number">How we work together</p><h2 id="team-charter-title">Team Charter</h2></div>
       <p class="charter-intro">Our team, purpose, and working agreements. Open any section to see the details.</p>
       <div class="charter-controls"><button class="charter-control" type="button" data-charter-expand>Expand all</button><button class="charter-control" type="button" data-charter-collapse>Collapse all</button></div>
       <section class="charter-part" id="identity" aria-labelledby="identity-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">07 · Team Identity</span><h3 id="identity-title">Members &amp; Contacts</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">08 · Team Identity</span><h3 id="identity-title">Members &amp; Contacts</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="card-grid members">
@@ -1575,7 +1684,7 @@
       </section>
       <section class="charter-part" id="purpose" aria-labelledby="purpose-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">08 · Shared Purpose</span><h3 id="purpose-title">What brings us together</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">09 · Shared Purpose</span><h3 id="purpose-title">What brings us together</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="card-grid">
@@ -1594,7 +1703,7 @@
       </section>
       <section class="charter-part" id="communication" aria-labelledby="communication-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">09 · Communication</span><h3 id="communication-title">How we stay connected</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">10 · Communication</span><h3 id="communication-title">How we stay connected</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="card-grid quick-facts">
@@ -1617,7 +1726,7 @@
       </section>
       <section class="charter-part" id="decisions" aria-labelledby="decisions-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">10 · Decision-Making</span><h3 id="decisions-title">How we move forward</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">11 · Decision-Making</span><h3 id="decisions-title">How we move forward</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="card-grid">
@@ -1636,7 +1745,7 @@
       </section>
       <section class="charter-part" id="agreements" aria-labelledby="agreements-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">11 · Working Agreements</span><h3 id="agreements-title">Our commitments</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">12 · Working Agreements</span><h3 id="agreements-title">Our commitments</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <ol class="steps">
@@ -1659,7 +1768,7 @@
       </section>
       <section class="charter-part" id="conflict" aria-labelledby="conflict-title">
         <details class="charter-item">
-          <summary><span class="eyebrow section-number">12 · Conflict Resolution</span><h3 id="conflict-title">When challenges arise</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">13 · Conflict Resolution</span><h3 id="conflict-title">When challenges arise</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="card-grid quick-facts">
@@ -1682,7 +1791,7 @@
       </section>
       <section class="charter-part" id="success" aria-labelledby="success-title">
         <details class="charter-item charter-success">
-          <summary><span class="eyebrow section-number">13 · Success Metrics</span><h3 id="success-title">What success means to us</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
+          <summary><span class="eyebrow section-number">14 · Success Metrics</span><h3 id="success-title">What success means to us</h3><span class="charter-toggle" aria-hidden="true"></span></summary>
           <div class="charter-body">
 
       <div class="closing-grid">
