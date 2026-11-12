@@ -993,6 +993,7 @@
 
     /* Weekly status reports */
     .weekly-report { border: 1px solid var(--line); border-radius: var(--radius-large); background: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
+    .weekly-report + .weekly-report { margin-top: 1rem; }
     .weekly-report > summary { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.2rem; list-style: none; cursor: pointer; padding: clamp(1rem, 3vw, 1.8rem); color: var(--burgundy-dark); }
     .weekly-report > summary::-webkit-details-marker { display: none; }
     .weekly-report > summary:focus-visible { outline: 3px solid var(--burgundy); outline-offset: -5px; }
@@ -1591,7 +1592,75 @@
         <h2 id="weekly-status-title">Weekly Status Reports</h2>
       </div>
 
-      <details class="weekly-report" id="week-10-status-report" open>
+      <details class="weekly-report" id="week-11-status-report" open>
+        <summary>
+          <span class="weekly-heading"><span class="weekly-week">Week 11</span><time datetime="2026-11-11">November 11, 2026</time></span>
+          <span class="weekly-health">ON TRACK</span>
+          <span class="charter-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="weekly-body">
+          <dl class="weekly-meta">
+            <div><dt>Team</dt><dd>The Spreadsheet Spartans</dd></div>
+            <div><dt>Report author</dt><dd>Brian</dd></div>
+          </dl>
+          <div class="weekly-goal">
+            <h4>Project Goal</h4>
+            <p>Our project goal is to help Balloons &amp; Buttery streamline their scheduling and booking system while also providing them with a centralized location to record and review financial transactions.</p>
+          </div>
+          <div class="weekly-summary">
+            <h4>Executive Summary</h4>
+            <p>We believe we’re on track because the work is coming along steadily. We are continuing to make changes and additions to the prototype site to better match the client’s needs and get the prototype ready for our second demo in the coming weeks.</p>
+          </div>
+
+          <div class="weekly-work">
+            <div>
+              <h4>Accomplishments This Week</h4>
+              <ul>
+                <li>Updated the prototype site with the first round of the client’s requests.<span class="weekly-owner">Team</span></li>
+                <li>Added an image upload feature.</li>
+                <li>Organized services into Cake and Balloons &amp; Backdrop.</li>
+                <li>Condensed the options into packages.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Plan for Next Week</h4>
+              <ul>
+                <li>Organize another prototype demonstration.<span class="weekly-owner">Reymond</span></li>
+                <li>Gather more package requirements, including starting prices and add-on prices.<span class="weekly-owner">Brian</span></li>
+                <li>Integrate the financial tracker and its data with the site.<span class="weekly-owner">Kevin and Annette</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <dl class="weekly-facts">
+            <div><dt>Client contact this period</dt><dd>None this week.</dd></div>
+            <div><dt>Risks</dt><dd>None.</dd></div>
+            <div><dt>Blockers</dt><dd>None.</dd></div>
+          </dl>
+
+          <div class="weekly-design">
+            <h4>Design Principles Check</h4>
+            <ol>
+              <li><span>1. Design meaningful systems</span><span class="weekly-check">Check</span></li>
+              <li><span>2. User-first design</span><span class="weekly-check">Check</span></li>
+              <li><span>3. Remember the why</span><span class="weekly-check">Check</span></li>
+              <li><span>4. Everything on the screen is intentional</span><span class="weekly-check no">No</span></li>
+              <li><span>5. Accessibility as a foundation</span><span class="weekly-check">Check</span></li>
+              <li><span>6. Look, presentation and content</span><span class="weekly-check">Check</span></li>
+              <li><span>7. Consistency</span><span class="weekly-check">Check</span></li>
+              <li><span>8. Error prevention and recovery</span><span class="weekly-check no">No</span></li>
+              <li><span>9. Creative exploration</span><span class="weekly-check">Check</span></li>
+            </ol>
+          </div>
+
+          <div class="weekly-summary">
+            <h4>Team Reflection</h4>
+            <p>This week we learned we’re on track to meet our goal. We all have busy schedules, but as long as we keep communicating with one another, we will be successful at the end of the semester.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="weekly-report" id="week-10-status-report">
         <summary>
           <span class="weekly-heading"><span class="weekly-week">Week 10</span><time datetime="2026-11-03">November 3, 2026</time></span>
           <span class="weekly-health">ON TRACK</span>
